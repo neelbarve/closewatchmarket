@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.venv/
+# personal brokerage statement - holdings are already captured in scripts/build_tables.py
+investopedia_hedge_funds.pdf
