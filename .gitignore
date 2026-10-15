@@ -3,3 +3,5 @@ __pycache__/
 .venv/
 # personal brokerage statement - holdings are already captured in scripts/build_tables.py
 investopedia_hedge_funds.pdf
+.streamlit/secrets.toml
+*.locked-copy.csv

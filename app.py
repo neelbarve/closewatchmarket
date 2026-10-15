@@ -10,13 +10,12 @@ from pathlib import Path
 
 import pandas as pd
 import streamlit as st
-import yfinance as yf
+
+import refresh
 
 ROOT = Path(__file__).resolve().parent
 ALL_CSV = ROOT / "output/earnings_oct_nov_2026.csv"
 HOLD_CSV = ROOT / "output/earnings_oct_nov_2026_holdings.csv"
-RAW_CSV = ROOT / "data/calendar_raw.csv"
-INFO_CSV = ROOT / "data/quote_info.csv"
 PORT_DIR = ROOT / "output/portfolios"  # one CSV per user portfolio, same format as HOLD_CSV
 WINDOW = (pd.Timestamp("2026-10-01").date(), pd.Timestamp("2026-11-30").date())
 
@@ -67,65 +66,12 @@ def show(df, key):
                        f"{key}.csv", "text/csv", key=f"{key}_dl")
 
 
-def quote(sym, cache):
-    """Quote/valuation fields from the cache, else one yfinance attempt (blank on failure)."""
-    if sym in cache.index and pd.notna(cache.at[sym, "Quote Type"]):
-        return cache.loc[sym].to_dict()
-    try:
-        i = yf.Ticker(sym).info or {}
-    except Exception:
-        i = {}
-    g = lambda *k: next((i[x] for x in k if i.get(x) is not None), None)
-    return {"Name": g("shortName", "longName"), "Quote Type": g("quoteType"),
-            "Current Price": g("currentPrice", "regularMarketPrice", "navPrice"),
-            "Analyst Target Price": g("targetMeanPrice"), "Market Cap": g("marketCap", "totalAssets"),
-            "Trailing P/E": g("trailingPE"), "Forward P/E": g("forwardPE"), "P/B": g("priceToBook"),
-            "Trailing EPS": g("trailingEps"), "Forward EPS": g("forwardEps")}
-
-
 def build_portfolio(tickers):
-    """Same rows/columns as the holdings CSV, for an arbitrary ticker list."""
-    raw = pd.read_csv(RAW_CSV)
-    raw["Earnings Date"] = (pd.to_datetime(raw["Event Start Date"], utc=True)
-                            .dt.tz_convert("America/New_York").dt.date)
-    cache = pd.read_csv(INFO_CSV).set_index("Symbol") if INFO_CSV.exists() else pd.DataFrame()
-    rows = []
-    for sym in tickers:
-        q = quote(sym, cache)
-        events = raw[raw["Symbol"] == sym]
-        base = {"Symbol": sym, "Name": q.get("Name"),
-                "Current Price": q.get("Current Price"), "Analyst Target Price": q.get("Analyst Target Price"),
-                "Market Cap ($B)": round(q["Market Cap"] / 1e9, 2) if pd.notna(q.get("Market Cap")) else None,
-                **{k: q.get(k) for k in ["Trailing P/E", "Forward P/E", "P/B", "Trailing EPS", "Forward EPS"]}}
-        if len(events):
-            for _, e in events.iterrows():
-                rows.append({**base, "Earnings Date": e["Earnings Date"], "Timing": e["Timing"],
-                             "Event": e["Event Name"] if pd.notna(e["Event Name"]) else "Earnings Announcement",
-                             "Name": base["Name"] or e["Company"],
-                             "Market Cap ($B)": base["Market Cap ($B)"] or (round(e["Marketcap"] / 1e9, 2) if pd.notna(e["Marketcap"]) else None),
-                             "EPS Estimate": e["EPS Estimate"], "Reported EPS": e["Reported EPS"],
-                             "Surprise (%)": e["Surprise(%)"]})
-            continue
-        date, event = None, "No earnings date found"
-        if q.get("Quote Type") in ("ETF", "MUTUALFUND"):
-            event = "ETF/fund - no earnings"
-        else:
-            try:
-                d = yf.Ticker(sym).calendar.get("Earnings Date") or []
-                d = pd.Timestamp(d[0]).date() if d else None
-            except Exception:
-                d = None
-            if d and WINDOW[0] <= d <= WINDOW[1]:
-                date, event = d, "Earnings (from ticker calendar)"
-            elif d:
-                event = f"Next earnings {d} (outside Oct-Nov)"
-        rows.append({**base, "Earnings Date": date, "Event": event})
-
-    df = pd.DataFrame(rows).reindex(columns=COLUMNS)
-    num = ["Current Price", "Analyst Target Price", "Trailing P/E", "Forward P/E", "P/B"]
-    df[num] = df[num].apply(pd.to_numeric, errors="coerce").round(2)
-    df["Upside to Target (%)"] = ((df["Analyst Target Price"] / df["Current Price"] - 1) * 100).round(1)
-    return df.sort_values(["Earnings Date", "Market Cap ($B)"], ascending=[True, False], na_position="last")
+    """Same rows/columns as the holdings CSV, built with the daily-refresh code."""
+    universe = refresh.read(refresh.UNIVERSE_CSV)
+    data = refresh.symbol_data(tickers, pd.DataFrame(columns=refresh.COLUMNS), universe,
+                               metric_limit=len(tickers), targets_for=tickers)
+    return refresh.portfolio_table(tickers, refresh.read(refresh.CAL_CSV), data)
 
 
 def parse_tickers(text):
@@ -138,7 +84,8 @@ def slug(name):
 
 # ---------------------------------------------------------------- layout
 st.title("Earnings Monitor - Oct/Nov 2026")
-st.caption("Source: Yahoo Finance earnings calendar via yfinance. Blank cells = value not returned by Yahoo.")
+st.caption("Sources: Finnhub (earnings, P/E, P/B), Tiingo (prices), FMP (analyst targets); refreshed daily. "
+           "Blank cells = value not available.")
 
 PORT_DIR.mkdir(parents=True, exist_ok=True)
 portfolios = sorted(PORT_DIR.glob("*.csv"))

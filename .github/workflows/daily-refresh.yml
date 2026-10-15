@@ -1,0 +1,32 @@
+name: Daily earnings refresh
+
+on:
+  schedule:
+    - cron: "30 22 * * 1-5"   # 22:30 UTC weekdays = after the US close
+  workflow_dispatch:          # "Run workflow" button for manual refreshes
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python refresh.py
+        env:
+          FINNHUB_KEY: ${{ secrets.FINNHUB_KEY }}
+          TIINGO_KEY: ${{ secrets.TIINGO_KEY }}
+          FMP_KEY: ${{ secrets.FMP_KEY }}
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data output
+          git diff --cached --quiet || git commit -m "Daily data refresh $(date -u +%F)"
+          git pull --rebase && git push
