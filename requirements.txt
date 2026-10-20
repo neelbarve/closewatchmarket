@@ -1,3 +1,4 @@
 streamlit>=1.40
 pandas>=2.2
 requests>=2.31
+yfinance>=0.2.54

@@ -26,7 +26,7 @@ PORT_DIR = ROOT / "output/portfolios"
 WINDOW = (date(2026, 10, 1), date(2026, 11, 30))
 MIN_CAP_B = 2.0
 MAX_NEW_PROFILES = 300  # Finnhub lookups for never-seen symbols per run
-MAX_TARGETS = 200       # FMP free tier is ~250 calls/day
+MAX_TARGETS = 110       # FMP free tier is ~250 calls/day, and we run twice a day
 
 # Holdings read from investopedia_hedge_funds.pdf (portfolio as of 2026-10-13)
 HOLDINGS = """AFRM AKAM AMAT AMD AMZN APLD ATO AVGO BITC BMY BUG CEG CIBR COP CRWD CSCO CTVA
@@ -64,6 +64,11 @@ def fetch_calendar():
     if not rows:
         return None
     cal = pd.DataFrame(rows)
+    # FMP's calendar sometimes has actual EPS before Finnhub does; use it to fill gaps
+    fmp = pd.DataFrame(sources.fmp_calendar(WINDOW[0].isoformat(), WINDOW[1].isoformat()))
+    if len(fmp):
+        fmp = fmp.dropna(subset=["epsActual"]).drop_duplicates("symbol").set_index("symbol")["epsActual"]
+        cal["epsActual"] = cal["epsActual"].fillna(cal["symbol"].map(fmp).where(cal["date"] <= date.today().isoformat()))
     cal = pd.DataFrame({
         "Earnings Date": cal["date"], "Symbol": cal["symbol"],
         "Timing": cal["hour"].str.upper().replace({"": "TAS", "DMH": "TAS"}),
@@ -91,7 +96,22 @@ def symbol_data(symbols, prev, universe, metric_limit, targets_for):
             data.at[sym, k] = v
         if i and i % 500 == 0:
             print(f"  metrics {i}/{min(len(order), metric_limit)}", flush=True)
-    for sym in first[:MAX_TARGETS]:
+    # Yahoo backup for analyst target / forward EPS; stop if Yahoo starts blocking us
+    fails = 0
+    for i, sym in enumerate(order[:metric_limit]):
+        y = sources.yahoo(sym)
+        fails = 0 if y else fails + 1
+        if fails >= 25:
+            print(f"  yahoo: stopped after {i} symbols (blocked)")
+            break
+        for k, v in y.items():
+            if k in ("Analyst Target Price", "Forward EPS") or pd.isna(data.at[sym, k]):
+                data.at[sym, k] = v
+        if i and i % 500 == 0:
+            print(f"  yahoo {i}/{min(len(order), metric_limit)}", flush=True)
+    # FMP for whatever still has no target, holdings/portfolios first (free tier ~250/day)
+    need = [s for s in order if pd.isna(data.at[s, "Analyst Target Price"])]
+    for sym in need[:MAX_TARGETS]:
         t = sources.price_target(sym)
         if t:
             data.at[sym, "Analyst Target Price"] = t

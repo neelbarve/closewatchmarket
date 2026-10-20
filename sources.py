@@ -1,6 +1,7 @@
 """Market-data providers used by the daily refresh and the dashboard.
 
 Finnhub  - earnings calendar, P/E, P/B, market cap, EPS, company name (60 calls/min free)
+Yahoo    - analyst target and forward EPS (unofficial; paced, best-effort backup)
 Tiingo   - latest prices for every ticker in one bulk call
 FMP      - analyst price-target consensus (~250 calls/day free, so only for small lists)
 
@@ -82,7 +83,30 @@ def prices(symbols=None):
 
 
 # ------------------------------------------------------------------ FMP
+def fmp_calendar(start, end):
+    """FMP earnings calendar rows (symbol, date, epsActual, epsEstimated) - fills gaps in Finnhub's."""
+    data = _get("https://financialmodelingprep.com/stable/earnings-calendar",
+                **{"from": start, "to": end, "apikey": key("FMP_KEY")})
+    return data if isinstance(data, list) else []
+
+
 def price_target(symbol):
     data = _get("https://financialmodelingprep.com/stable/price-target-consensus",
                 symbol=symbol, apikey=key("FMP_KEY"))
     return data[0].get("targetConsensus") if isinstance(data, list) and data else None
+
+
+# ------------------------------------------------------------------ Yahoo (backup)
+def yahoo(symbol):
+    """Analyst target, forward EPS and fallbacks for other fields - or {} on any failure."""
+    try:
+        import yfinance as yf
+        i = yf.Ticker(symbol).info or {}
+    except Exception:
+        return {}
+    time.sleep(0.4)  # pace requests: Yahoo blocks bursts
+    return {k: v for k, v in {
+        "Analyst Target Price": i.get("targetMeanPrice"), "Forward EPS": i.get("forwardEps"),
+        "Trailing P/E": i.get("trailingPE"), "P/B": i.get("priceToBook"),
+        "Name": i.get("shortName"), "Trailing EPS": i.get("trailingEps"),
+    }.items() if v is not None}

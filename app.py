@@ -12,6 +12,7 @@ import pandas as pd
 import streamlit as st
 
 import refresh
+import sources
 
 ROOT = Path(__file__).resolve().parent
 ALL_CSV = ROOT / "output/earnings_oct_nov_2026.csv"
@@ -34,8 +35,24 @@ def read(path):
 COLUMNS = read(HOLD_CSV).columns.tolist()
 
 
+@st.cache_data(ttl=60)
+def live_prices():
+    """Latest Tiingo prices for every ticker (one call, refreshed at most once a minute)."""
+    return sources.prices(), pd.Timestamp.now(tz="America/New_York")
+
+
+def with_live_prices(df):
+    px, _ = live_prices()
+    df = df.copy()
+    df["Current Price"] = df["Symbol"].map(px).fillna(df["Current Price"]).round(2)
+    df["Upside to Target (%)"] = ((df["Analyst Target Price"] / df["Current Price"] - 1) * 100).round(1)
+    df["Forward P/E"] = (df["Current Price"] / df["Forward EPS"]).where(df["Forward EPS"] > 0).round(2)
+    return df
+
+
 def show(df, key):
     """Summary metrics, filters, table and CSV download for one earnings table."""
+    df = with_live_prices(df)
     today = pd.Timestamp.today().normalize()
     dated = df["Earnings Date"].notna()
     c1, c2, c3, c4 = st.columns(4)
@@ -84,7 +101,9 @@ def slug(name):
 
 # ---------------------------------------------------------------- layout
 st.title("Earnings Monitor - Oct/Nov 2026")
-st.caption("Sources: Finnhub (earnings, P/E, P/B), Tiingo (prices), FMP (analyst targets); refreshed daily. "
+_px, _px_time = live_prices()
+st.caption(f"Prices live from Tiingo as of {_px_time:%Y-%m-%d %H:%M} ET (updates every minute on reload). "
+           "Earnings and valuations: Finnhub, FMP and Yahoo, refreshed 10:00 and 18:30 ET on weekdays. "
            "Blank cells = value not available.")
 
 PORT_DIR.mkdir(parents=True, exist_ok=True)

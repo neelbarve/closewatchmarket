@@ -1,8 +1,11 @@
 name: Daily earnings refresh
 
+concurrency: refresh  # never run two refreshes at once
+
 on:
   schedule:
-    - cron: "30 22 * * 1-5"   # 22:30 UTC weekdays = after the US close
+    - cron: "0 14 * * 1-5"    # 10:00 ET weekdays: picks up before-open reports
+    - cron: "30 22 * * 1-5"   # 18:30 ET weekdays: picks up after-close reports
   workflow_dispatch:          # "Run workflow" button for manual refreshes
 
 permissions:
