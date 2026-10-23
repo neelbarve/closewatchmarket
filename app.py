@@ -67,7 +67,18 @@ def show(df, key):
     rng = f2.date_input("Earnings date range", (lo, hi), min_value=lo, max_value=hi, key=f"{key}_d")
     upcoming = f3.checkbox("Upcoming only", key=f"{key}_u")
 
+    # Range filter on any numeric column; min/max default to the column's full range
+    numeric = [c for c in df.columns if pd.api.types.is_numeric_dtype(df[c]) and df[c].notna().any()]
+    r1, r2, r3 = st.columns([2, 1, 1])
+    col = r1.selectbox("Filter column by range", ["(none)"] + numeric, key=f"{key}_rc")
+    if col != "(none)":
+        cmin, cmax = float(df[col].min()), float(df[col].max())
+        vmin = r2.number_input("Min", value=cmin, key=f"{key}_{col}_min")
+        vmax = r3.number_input("Max", value=cmax, key=f"{key}_{col}_max")
+
     view = df
+    if col != "(none)":  # rows with a blank value in that column are hidden while filtering
+        view = view[view[col].between(vmin, vmax)]
     if search:
         view = view[view["Symbol"].str.lower().str.contains(search, regex=False)
                     | view["Name"].fillna("").str.lower().str.contains(search, regex=False)]
