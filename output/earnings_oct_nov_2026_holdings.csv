@@ -1,58 +1,58 @@
 Earnings Date,Timing,Symbol,Name,Event,Current Price,Analyst Target Price,Upside to Target (%),EPS Estimate,Reported EPS,Surprise (%),Trailing EPS,Forward EPS,Market Cap ($B),Trailing P/E,Forward P/E,P/B
-2026-10-01,AMC,NKE,"NIKE, Inc.",Q1 2027 Earnings Announcement,37.04,36.5,-1.5,0.4364,0.48,9.99,2.09,1.55504,55.83,18.05,23.82,3.81
-2026-10-07,AMC,APLD,Applied Digital Corporation,Q1 2027 Earnings Announcement,19.93,62.44,213.3,-0.306,-0.82,-167.97,-1.61,-0.78444,5.9,,,4.15
-2026-10-13,BMO,JNJ,Johnson & Johnson,Q3 2026 Earnings Announcement,271.27,279.41,3.0,2.5631,2.59,1.05,6.59,11.61778,644.63,40.05,23.35,7.32
-2026-10-13,BMO,UNH,UnitedHealth Group Incorporated,Q3 2026 Earnings Announcement,407.13,476.64,17.1,4.1809,4.69,12.18,17.52,23.28611,369.65,23.27,17.48,3.16
-2026-10-13,BMO,WFC,Wells Fargo & Company,Q3 2026 Earnings Announcement,83.78,97.02,15.8,1.8724,1.87,-0.13,7.42,8.01152,250.05,10.88,10.46,1.37
-2026-10-20,BMO,GE,GE Aerospace,Q3 2026 Earnings Announcement,301.35,378.43,25.6,2.0657,2.25,8.92,8.67,9.31296,307.28,33.76,32.36,18.42
-2026-10-20,AMC,NFLX,"Netflix, Inc.",Q3 2026 Earnings Announcement,61.64,84.76,37.5,0.8391,0.87,3.68,3.46,3.77134,258.29,17.49,16.34,9.89
-2026-10-21,AMC,TSLA,"Tesla, Inc.",Q3 2026 Earnings Announcement,402.62,410.68,2.0,0.4358,0.48,10.14,0.91,2.15531,1610.59,500.18,186.8,15.71
-2026-10-21,AMC,META,"Meta Platforms, Inc.",Q3 2026 Earnings Announcement,610.84,846.79,38.6,5.7889,7.4,27.83,29.34,35.15,1585.36,21.07,17.38,6.78
-2026-10-21,BMO,T,AT&T Inc.,Q3 2026 Earnings Announcement,20.72,27.72,33.8,0.6106,0.65,6.45,1.87,2.59276,140.46,10.69,7.99,1.57
-2026-10-22,BMO,VLO,Valero Energy Corporation,Q3 2026 Earnings Announcement,390.08,426.42,9.3,21.2818,23.9,12.3,24.18,53.61123,112.81,15.64,7.28,3.09
-2026-10-26,BMO,VZ,Verizon Communications Inc.,Q3 2026 Earnings Announcement,43.26,50.56,16.9,1.3111,1.31,-0.08,3.92,5.30704,180.15,10.97,8.15,1.8
-2026-10-27,BMO,SOFI,"SoFi Technologies, Inc.",Q3 2026 Earnings Announcement,16.98,20.45,20.5,0.1701,0.18,5.82,0.47,0.89222,21.18,33.29,19.03,2.08
-2026-10-28,AMC,GOOGL,Alphabet Inc.,Q3 2026 Earnings Announcement,323.79,429.68,32.7,3.1095,,,19.91,15.1882,3938.92,16.13,21.32,6.76
-2026-10-28,BMO,GEV,GE Vernova Inc.,Q3 2026 Earnings Announcement,879.08,1223.97,39.2,4.0059,4.81,20.07,34.98,25.19129,238.39,25.02,34.9,26.4
-2026-10-28,AMC,FTNT,"Fortinet, Inc.",Q3 2026 Earnings Announcement,176.12,169.45,-3.8,0.8739,,,2.84,3.79142,131.71,62.11,46.45,72.56
-2026-10-28,AMC,MGM,MGM Resorts International,Q3 2026 Earnings Announcement,27.56,41.68,51.3,0.101,,,1.63,1.76615,7.18,16.86,15.6,4.87
-2026-10-29,AMC,AMZN,"Amazon.com, Inc.",Q3 2026 Earnings Announcement,253.86,332.41,30.9,2.001,,,12.43,10.45009,2736.22,20.23,24.29,4.65
-2026-10-29,BMO,LLY,Eli Lilly and Company,Q3 2026 Earnings Announcement,1294.9,1333.72,3.0,6.6112,,,29.8,47.38767,1212.31,45.39,27.33,33.34
-2026-10-29,BMO,MRK,"Merck & Co., Inc.",Q3 2026 Earnings Announcement,140.67,159.76,13.6,2.1019,,,1.25,9.23429,349.47,110.14,15.23,7.57
-2026-10-29,BMO,LIN,Linde plc,Q3 2026 Earnings Announcement,506.81,545.26,7.6,4.5612,,,15.49,19.5749,234.48,32.37,25.89,6.14
-2026-10-29,BMO,BMY,Bristol-Myers Squibb Company,Q3 2026 Earnings Announcement,60.58,65.25,7.7,1.209,,,4.54,6.60649,125.65,13.54,9.17,5.27
-2026-10-29,BMO,PWR,"Quanta Services, Inc.",Q3 2026 Earnings Announcement,602.28,760.9,26.3,5.0341,,,8.73,19.93404,88.36,66.59,30.21,11.21
-2026-10-29,AMC,DLR,"Digital Realty Trust, Inc.",Q3 2026 Earnings Announcement,179.62,222.97,24.1,0.534,,,2.24,2.76208,66.55,83.29,65.03,2.34
-2026-10-30,BMO,XOM,ExxonMobil Holdings Corporation,Q3 2026 Earnings Announcement,182.4,179.41,-1.6,4.1205,,,7.77,12.20933,730.14,22.29,14.94,2.18
-2026-10-30,BMO,CVX,Chevron Corporation,Q3 2026 Earnings Announcement,230.34,232.5,0.9,4.9317,,,10.43,15.71607,451.76,21.94,14.66,1.74
-2026-11-02,AMC,PLTR,Palantir Technologies Inc.,Q3 2026 Earnings Announcement,193.46,208.97,8.0,0.4225,,,1.17,2.33671,477.56,158.31,82.79,28.62
-2026-11-03,AMC,AMD,"Advanced Micro Devices, Inc.",Q3 2026 Earnings Announcement,574.15,637.61,11.1,1.9666,,,3.9,15.84721,918.01,142.68,36.23,13.09
-2026-11-03,AMC,HL,Hecla Mining Company,Q3 2026 Earnings Announcement,14.58,21.88,50.1,0.1957,,,0.5,0.95111,9.74,29.17,15.32,3.86
-2026-11-04,BMO,MCD,McDonald's Corporation,Q3 2026 Earnings Announcement,250.06,291.69,16.7,3.4184,,,12.31,13.74116,177.1,20.16,18.2,160.46
-2026-11-04,AMC,ATO,Atmos Energy Corporation,Q4 2026 Earnings Announcement,169.67,182.45,7.5,1.1493,,,8.42,9.03833,28.84,20.57,18.77,1.88
-2026-11-05,BMO,COP,ConocoPhillips,Q3 2026 Earnings Announcement,149.49,151.48,1.3,2.9907,,,7.57,10.78384,178.99,19.28,13.86,1.94
-2026-11-05,AMC,NET,"Cloudflare, Inc.",Q3 2026 Earnings Announcement,319.06,343.42,7.6,0.3453,,,-0.58,1.68159,117.83,,189.74,53.74
-2026-11-05,TAS,AFRM,"Affirm Holdings, Inc.",Q1 2027 Earnings Announcement,72.47,98.33,35.7,0.381,,,5.52,5.01587,24.64,12.77,14.45,4.98
-2026-11-05,AMC,AKAM,"Akamai Technologies, Inc.",Q3 2026 Earnings Announcement,97.84,154.96,58.4,1.705,,,2.77,6.83642,14.26,34.69,14.31,3.62
-2026-11-05,TAS,IREN,IREN Limited,Q1 2027 Earnings Announcement,28.06,77.81,177.3,-0.6789,,,-2.08,-3.98264,11.1,,,3.9
-2026-11-05,TAS,USAR,"USA Rare Earth, Inc.",Q3 2026 Earnings Announcement,10.3,35.12,240.9,-0.1612,,,-2.39,0.03,3.84,,343.5,2.07
-2026-11-09,TAS,CEG,Constellation Energy Corporatio,Q3 2026 Earnings Announcement,257.7,339.07,31.6,3.7658,,,10.26,13.32137,91.76,26.48,19.34,2.79
-2026-11-11,AMC,CTVA,"Corteva, Inc.",Q3 2026 Earnings Announcement,11.26,17.13,52.0,0.0969,,,1.51,1.12395,7.83,7.76,10.02,2.25
-2026-11-11,TAS,RDW,Redwire Corporation,Q3 2026 Earnings Announcement,8.86,14.28,61.1,-0.1232,,,-1.36,-0.32,2.22,,,1.79
-2026-11-12,TAS,PANW,"Palo Alto Networks, Inc.",Q1 2027 Earnings Announcement,394.34,398.52,1.1,0.9908,,,0.51,4.87907,328.59,1070.33,80.82,9.84
-2026-11-12,AMC,AMAT,"Applied Materials, Inc.",Q4 2026 Earnings Announcement,414.41,627.83,51.5,4.1345,,,11.59,18.49094,322.22,34.77,22.41,16.01
-2026-11-17,AMC,NVDA,NVIDIA Corporation,Q3 2027 Earnings Announcement,214.68,328.95,53.2,2.5263,,,7.91,15.9146,5276.94,27.36,13.49,20.77
-2026-11-18,TAS,CSCO,"Cisco Systems, Inc.",Q1 2027 Earnings Announcement,110.22,136.16,23.5,1.3516,,,3.33,5.62203,439.13,33.1,19.6,8.98
-2026-11-19,TAS,WMT,Walmart Inc.,Q3 2027 Earnings Announcement,118.72,127.48,7.4,0.6427,,,2.76,3.22649,939.05,42.54,36.8,9.01
+2026-10-01,AMC,NKE,"NIKE, Inc.",Q1 2027 Earnings Announcement,37.15,36.5,-1.7,0.4364,0.48,9.99,2.09,1.55504,55.42,17.92,23.89,3.81
+2026-10-07,AMC,APLD,Applied Digital Corporation,Q1 2027 Earnings Announcement,20.39,62.44,206.2,-0.306,-0.82,-167.97,-1.61,-0.78444,6.17,,,4.15
+2026-10-13,BMO,JNJ,Johnson & Johnson,Q3 2026 Earnings Announcement,271.04,279.41,3.1,2.5631,2.59,1.05,6.59,11.61778,654.49,40.66,23.33,7.32
+2026-10-13,BMO,UNH,UnitedHealth Group Incorporated,Q3 2026 Earnings Announcement,407.1,476.64,17.1,4.1809,4.69,12.18,17.52,23.28611,371.3,23.38,17.48,3.16
+2026-10-13,BMO,WFC,Wells Fargo & Company,Q3 2026 Earnings Announcement,83.67,97.02,16.0,1.8724,1.87,-0.13,7.42,8.01152,250.05,10.88,10.44,1.37
+2026-10-20,BMO,GE,GE Aerospace,Q3 2026 Earnings Announcement,301.13,378.43,25.7,2.0657,2.25,8.92,8.67,9.31296,307.28,33.76,32.33,18.42
+2026-10-20,AMC,NFLX,"Netflix, Inc.",Q3 2026 Earnings Announcement,61.99,84.76,36.7,0.8391,0.87,3.68,3.46,3.77134,253.94,17.2,16.44,9.89
+2026-10-21,AMC,TSLA,"Tesla, Inc.",Q3 2026 Earnings Announcement,404.22,410.68,1.6,0.4358,0.48,10.14,0.91,2.15531,1610.59,500.18,187.55,15.71
+2026-10-21,AMC,META,"Meta Platforms, Inc.",Q3 2026 Earnings Announcement,612.49,848.38,38.5,5.7889,7.4,27.83,29.34,35.15,1585.36,21.07,17.43,6.78
+2026-10-21,BMO,T,AT&T Inc.,Q3 2026 Earnings Announcement,20.7,27.72,33.9,0.6106,0.65,6.45,1.87,2.59276,140.46,10.69,7.98,1.57
+2026-10-22,BMO,VLO,Valero Energy Corporation,Q3 2026 Earnings Announcement,388.48,426.42,9.8,21.2818,23.9,12.3,24.18,53.61123,112.81,15.64,7.25,3.09
+2026-10-26,BMO,VZ,Verizon Communications Inc.,Q3 2026 Earnings Announcement,43.18,50.56,17.1,1.3111,1.31,-0.08,3.92,5.30704,180.15,10.97,8.14,1.8
+2026-10-27,BMO,SOFI,"SoFi Technologies, Inc.",Q3 2026 Earnings Announcement,17.14,20.6,20.2,0.1701,0.18,5.82,0.47,0.875,21.18,33.29,19.59,2.08
+2026-10-28,AMC,GOOGL,Alphabet Inc.,Q3 2026 Earnings Announcement,324.89,429.68,32.3,3.1095,2.12,-31.82,19.91,15.1882,3975.85,16.28,21.39,6.76
+2026-10-28,BMO,GEV,GE Vernova Inc.,Q3 2026 Earnings Announcement,878.03,1216.91,38.6,4.0059,4.81,20.07,34.98,25.28504,238.39,25.02,34.73,26.4
+2026-10-28,AMC,FTNT,"Fortinet, Inc.",Q3 2026 Earnings Announcement,174.08,169.45,-2.7,0.8739,0.91,4.13,2.84,3.79142,131.71,62.11,45.91,72.56
+2026-10-28,AMC,MGM,MGM Resorts International,Q3 2026 Earnings Announcement,27.27,41.68,52.9,0.101,-0.11,-208.91,1.63,1.76615,7.18,16.86,15.44,4.87
+2026-10-29,AMC,AMZN,"Amazon.com, Inc.",Q3 2026 Earnings Announcement,254.6,332.41,30.6,2.001,,,12.43,10.45009,2736.22,20.23,24.36,4.65
+2026-10-29,BMO,LLY,Eli Lilly and Company,Q3 2026 Earnings Announcement,1288.3,1333.72,3.5,6.6112,,,29.8,47.38767,1212.31,45.39,27.19,33.34
+2026-10-29,BMO,MRK,"Merck & Co., Inc.",Q3 2026 Earnings Announcement,140.93,159.76,13.4,2.1019,,,1.25,9.26167,349.47,110.14,15.22,7.57
+2026-10-29,BMO,LIN,Linde plc,Q3 2026 Earnings Announcement,508.16,545.26,7.3,4.5612,,,15.49,19.5749,233.94,32.29,25.96,6.14
+2026-10-29,BMO,BMY,Bristol-Myers Squibb Company,Q3 2026 Earnings Announcement,60.57,65.25,7.7,1.209,,,4.54,6.60649,124.24,13.38,9.17,5.27
+2026-10-29,BMO,PWR,"Quanta Services, Inc.",Q3 2026 Earnings Announcement,606.89,760.9,25.4,5.0341,,,8.73,19.93404,88.36,66.59,30.44,11.21
+2026-10-29,AMC,DLR,"Digital Realty Trust, Inc.",Q3 2026 Earnings Announcement,179.77,223.38,24.3,0.534,,,2.24,2.76208,66.55,83.29,65.09,2.34
+2026-10-30,BMO,XOM,ExxonMobil Holdings Corporation,Q3 2026 Earnings Announcement,182.02,179.41,-1.4,4.1205,,,7.77,12.20933,730.14,22.29,14.91,2.18
+2026-10-30,BMO,CVX,Chevron Corporation,Q3 2026 Earnings Announcement,229.2,232.5,1.4,4.9317,,,10.43,15.71607,455.5,22.12,14.58,1.74
+2026-11-02,AMC,PLTR,Palantir Technologies Inc.,Q3 2026 Earnings Announcement,196.81,208.97,6.2,0.4225,,,1.17,2.3505,472.95,156.78,83.73,28.62
+2026-11-03,AMC,AMD,"Advanced Micro Devices, Inc.",Q3 2026 Earnings Announcement,578.44,640.21,10.7,1.9666,,,3.9,15.84721,941.86,146.39,36.5,13.09
+2026-11-03,AMC,HL,Hecla Mining Company,Q3 2026 Earnings Announcement,14.92,21.88,46.6,0.1957,,,0.5,1.0325,9.76,29.24,14.45,3.86
+2026-11-04,BMO,MCD,McDonald's Corporation,Q3 2026 Earnings Announcement,250.5,291.69,16.4,3.4184,,,12.31,13.74116,177.1,20.16,18.23,160.46
+2026-11-04,AMC,ATO,Atmos Energy Corporation,Q4 2026 Earnings Announcement,169.53,182.45,7.6,1.1493,,,8.42,9.03833,28.8,20.53,18.76,1.88
+2026-11-05,BMO,COP,ConocoPhillips,Q3 2026 Earnings Announcement,149.06,151.48,1.6,2.9907,,,7.57,10.78384,178.99,19.28,13.82,1.94
+2026-11-05,AMC,NET,"Cloudflare, Inc.",Q3 2026 Earnings Announcement,318.72,343.42,7.7,0.3453,,,-0.58,1.68159,113.49,,189.53,53.74
+2026-11-05,TAS,AFRM,"Affirm Holdings, Inc.",Q1 2027 Earnings Announcement,73.32,98.33,34.1,0.381,,,5.52,5.01587,24.86,12.88,14.62,4.98
+2026-11-05,AMC,AKAM,"Akamai Technologies, Inc.",Q3 2026 Earnings Announcement,98.1,154.96,58.0,1.705,,,2.77,6.83642,14.26,34.69,14.35,3.62
+2026-11-05,TAS,IREN,IREN Limited,Q1 2027 Earnings Announcement,28.84,76.92,166.7,-0.6789,,,-2.08,-3.98264,11.1,,,3.9
+2026-11-05,TAS,USAR,"USA Rare Earth, Inc.",Q3 2026 Earnings Announcement,10.48,35.12,235.2,-0.1612,,,-2.39,0.03,3.84,,349.33,2.07
+2026-11-09,TAS,CEG,Constellation Energy Corporatio,Q3 2026 Earnings Announcement,258.08,338.42,31.1,3.7658,,,10.26,13.31715,91.76,26.48,19.38,2.79
+2026-11-11,AMC,CTVA,"Corteva, Inc.",Q3 2026 Earnings Announcement,11.33,17.13,51.2,0.0969,,,1.51,1.12395,7.55,7.49,10.08,2.25
+2026-11-11,TAS,RDW,Redwire Corporation,Q3 2026 Earnings Announcement,9.01,14.28,58.5,-0.1232,,,-1.36,-0.32,2.22,,,1.79
+2026-11-12,TAS,PANW,"Palo Alto Networks, Inc.",Q1 2027 Earnings Announcement,394.49,398.52,1.0,0.9908,,,0.51,4.87907,328.59,1070.33,80.85,9.84
+2026-11-12,AMC,AMAT,"Applied Materials, Inc.",Q4 2026 Earnings Announcement,416.0,627.83,50.9,4.1345,,,11.59,18.49094,322.22,34.77,22.5,16.01
+2026-11-17,AMC,NVDA,NVIDIA Corporation,Q3 2027 Earnings Announcement,215.38,328.95,52.7,2.5263,,,7.91,15.9146,5276.94,27.36,13.53,20.77
+2026-11-18,TAS,CSCO,"Cisco Systems, Inc.",Q1 2027 Earnings Announcement,110.29,136.16,23.5,1.3516,,,3.33,5.62203,434.83,32.78,19.62,8.98
+2026-11-19,TAS,WMT,Walmart Inc.,Q3 2027 Earnings Announcement,118.77,127.48,7.3,0.6427,,,2.76,3.22649,939.05,42.54,36.81,9.01
 2026-11-23,TAS,DKS,Dick's Sporting Goods Inc,Q3 2027 Earnings Announcement,136.11,160.83,18.2,1.4284,,,9.31,13.11433,12.35,14.72,10.38,3.14
-2026-11-30,TAS,CRWD,"CrowdStrike Holdings, Inc.",Q3 2027 Earnings Announcement,264.67,247.25,-6.6,0.3179,,,0.06,1.61123,275.13,4706.32,164.27,38.1
-,,AVGO,Broadcom Inc.,No earnings date found,349.88,530.14,51.5,,,,7.83,19.46507,1636.69,42.77,17.98,18.72
-,,MU,"Micron Technology, Inc.",No earnings date found,977.9,1561.91,59.7,,,,74.21,206.89381,1050.37,12.36,4.73,7.82
-,,NVS,Novartis AG,No earnings date found,156.12,154.65,-0.9,,,,6.62,9.90535,233.36,22.08,15.76,7.48
-,,CIBR,First Trust NASDAQ Cybersecurit,ETF/fund - no earnings,107.66,,,,,,,,17.32,33.1,,
-,,BUG,Global X Cybersecurity ETF,ETF/fund - no earnings,51.78,,,,,,,,2.09,39.06,,
+2026-11-30,TAS,CRWD,"CrowdStrike Holdings, Inc.",Q3 2027 Earnings Announcement,266.66,247.25,-7.3,0.3179,,,0.06,1.61123,271.27,4640.28,165.5,38.1
+,,AVGO,Broadcom Inc.,No earnings date found,351.81,530.14,50.7,,,,7.83,19.4315,1661.22,43.41,18.11,18.72
+,,MU,"Micron Technology, Inc.",No earnings date found,983.23,1561.91,58.9,,,,74.21,206.89381,1099.77,12.94,4.75,7.82
+,,NVS,Novartis AG,No earnings date found,156.08,155.29,-0.5,,,,5.23,9.90535,235.74,28.3,15.76,7.9
+,,CIBR,First Trust NASDAQ Cybersecurit,ETF/fund - no earnings,107.92,,,,,,,,17.32,33.1,,
+,,BUG,Global X Cybersecurity ETF,ETF/fund - no earnings,51.9,,,,,,,,2.09,39.06,,
 ,,BITC,Bitwise Trendwise Bitcoin and T,ETF/fund - no earnings,37.61,,,,,,,,0.01,,,
-,,FHLC,Fidelity MSCI Health Care Index,No earnings date found,86.46,,,,,,,,,30.38,,
-,,IVV,iShares Core S&P 500 ETF,No earnings date found,773.79,,,,,,,,,24.34,,1.79
-,,PIE,Invesco Dorsey Wright Emerging ,No earnings date found,33.1,,,,,,,,,17.8,,
-,,QQQ,"Invesco QQQ Trust, Series 1",No earnings date found,722.12,,,,,,,,,27.51,,2.01
+,,FHLC,Fidelity MSCI Health Care Index,No earnings date found,86.6,,,,,,,,,30.38,,
+,,IVV,iShares Core S&P 500 ETF,No earnings date found,775.65,,,,,,,,,24.34,,1.79
+,,PIE,Invesco Dorsey Wright Emerging ,No earnings date found,33.09,,,,,,,,,17.8,,
+,,QQQ,"Invesco QQQ Trust, Series 1",No earnings date found,725.61,,,,,,,,,27.51,,2.01
