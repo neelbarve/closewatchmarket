@@ -26,6 +26,7 @@ PORT_DIR = ROOT / "output/portfolios"
 WINDOW = (date(2026, 10, 1), date(2026, 11, 30))
 MIN_CAP_B = 2.0
 MAX_NEW_PROFILES = 300  # Finnhub lookups for never-seen symbols per run
+MAX_SECTORS = 1000      # Finnhub sector lookups per run (about 1/sec)
 MAX_TARGETS = 110       # FMP free tier is ~250 calls/day, and we run twice a day
 
 # Holdings read from investopedia_hedge_funds.pdf (portfolio as of 2026-10-13)
@@ -33,11 +34,32 @@ HOLDINGS = """AFRM AKAM AMAT AMD AMZN APLD ATO AVGO BITC BMY BUG CEG CIBR COP CR
 CVX DKS DLR FHLC FTNT GE GEV GOOGL HL IREN IVV JNJ LIN LLY MCD META MGM MRK MU NET
 NFLX NKE NVDA NVS PANW PIE PLTR PWR QQQ RDW SOFI T TSLA UNH USAR VLO VZ WFC WMT XOM""".split()
 
-COLUMNS = ["Earnings Date", "Timing", "Symbol", "Name", "Event", "Current Price", "Analyst Target Price",
+COLUMNS = ["Earnings Date", "Timing", "Symbol", "Name", "Category", "Sector", "Event", "Current Price", "Analyst Target Price",
            "Upside to Target (%)", "EPS Estimate", "Reported EPS", "Surprise (%)", "Trailing EPS", "Forward EPS",
            "Market Cap ($B)", "Trailing P/E", "Forward P/E", "P/B"]
-CARRY = ["Name", "Current Price", "Analyst Target Price", "Trailing EPS", "Forward EPS",
+CARRY = ["Name", "Sector", "Current Price", "Analyst Target Price", "Trailing EPS", "Forward EPS",
          "Market Cap ($B)", "Trailing P/E", "P/B"]  # per-symbol values kept from yesterday if missing today
+# Broad categories: Yahoo sector names plus Finnhub's narrower industry labels
+CATEGORIES = {
+    "Finance": ["Financial Services", "Banking", "Insurance"],
+    "Technology": ["Technology", "Semiconductors"],
+    "Healthcare": ["Healthcare", "Health Care", "Biotechnology", "Pharmaceuticals", "Life Sciences Tools & Services"],
+    "Energy": ["Energy"],
+    "Consumer Discretionary": ["Consumer Cyclical", "Hotels, Restaurants & Leisure", "Retail", "Automobiles",
+                               "Auto Components", "Textiles, Apparel & Luxury Goods", "Leisure Products",
+                               "Diversified Consumer Services", "Distributors"],
+    "Consumer Staples": ["Consumer Defensive", "Consumer products", "Food Products", "Beverages", "Tobacco"],
+    "Industrials": ["Industrials", "Machinery", "Aerospace & Defense", "Electrical Equipment", "Professional Services",
+                    "Building", "Construction", "Trading Companies & Distributors", "Road & Rail", "Airlines",
+                    "Commercial Services & Supplies", "Industrial Conglomerates", "Logistics & Transportation",
+                    "Marine", "Transportation Infrastructure"],
+    "Materials": ["Basic Materials", "Chemicals", "Metals & Mining", "Packaging"],
+    "Communication Services": ["Communication Services", "Communications", "Telecommunication", "Media"],
+    "Utilities": ["Utilities"],
+    "Real Estate": ["Real Estate"],
+    "ETF/Fund": ["ETF/Fund"],
+}
+SECTOR_TO_CATEGORY = {label: cat for cat, labels in CATEGORIES.items() for label in labels}
 NO_EVENT = {"ETF/fund - no earnings", "No earnings date found"}
 
 
@@ -80,7 +102,8 @@ def fetch_calendar():
 # ------------------------------------------------------------------ per-symbol data
 def symbol_data(symbols, prev, universe, metric_limit, targets_for):
     """DataFrame indexed by Symbol with the CARRY fields, fresh where possible."""
-    data = prev.set_index("Symbol")[CARRY].groupby(level=0).last() if len(prev) else pd.DataFrame(columns=CARRY)
+    data = prev.reindex(columns=["Symbol"] + CARRY).groupby("Symbol").last()
+    data["Sector"] = data["Sector"].astype(object)  # may be all blank in older CSVs
     data = data.reindex(sorted(set(symbols)))
     names = universe.set_index("Symbol")
     data["Name"] = data["Name"].fillna(names["Name"].reindex(data.index))
@@ -105,10 +128,15 @@ def symbol_data(symbols, prev, universe, metric_limit, targets_for):
             print(f"  yahoo: stopped after {i} symbols (blocked)")
             break
         for k, v in y.items():
-            if k in ("Analyst Target Price", "Forward EPS") or pd.isna(data.at[sym, k]):
+            if k in ("Analyst Target Price", "Forward EPS", "Sector") or pd.isna(data.at[sym, k]):
                 data.at[sym, k] = v
         if i and i % 500 == 0:
             print(f"  yahoo {i}/{min(len(order), metric_limit)}", flush=True)
+    # Finnhub industry for anything Yahoo didn't classify; sectors carry over, so this shrinks fast
+    for sym in [s for s in order if pd.isna(data.at[s, "Sector"])][:MAX_SECTORS]:
+        sector = sources.sector(sym)
+        if sector:
+            data.at[sym, "Sector"] = sector
     # FMP for whatever still has no target, holdings/portfolios first (free tier ~250/day)
     need = [s for s in order if pd.isna(data.at[s, "Analyst Target Price"])]
     for sym in need[:MAX_TARGETS]:
@@ -130,6 +158,7 @@ def make_table(events, data, extra_symbols=(), prev=None):
                                            else "ETF/fund - no earnings")
                             for i, s in enumerate(missing)]
         df = pd.concat([df, undated], ignore_index=True)
+    df["Category"] = df["Sector"].map(lambda x: SECTOR_TO_CATEGORY.get(x, "Other") if pd.notna(x) else None)
     df["Surprise (%)"] = ((df["Reported EPS"] - df["EPS Estimate"]) / df["EPS Estimate"].abs() * 100).where(df["EPS Estimate"].abs() > 0).round(2)
     df["Forward P/E"] = (df["Current Price"] / df["Forward EPS"]).where(df["Forward EPS"] > 0)
     df["Upside to Target (%)"] = ((df["Analyst Target Price"] / df["Current Price"] - 1) * 100).round(1)

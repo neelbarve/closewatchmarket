@@ -68,6 +68,12 @@ def profile(symbol):
                               "Market Cap ($B)": round(cap / 1e3, 2) if cap else None}.items() if v}
 
 
+def sector(symbol):
+    """Finnhub's industry label, or None (used when Yahoo has no sector)."""
+    label = (_finnhub("stock/profile2", symbol=symbol) or {}).get("finnhubIndustry")
+    return label if label and label != "N/A" else None
+
+
 # ------------------------------------------------------------------ Tiingo
 def prices(symbols=None):
     """{SYMBOL: last price}. No symbols -> every ticker Tiingo covers, in one call."""
@@ -109,4 +115,5 @@ def yahoo(symbol):
         "Analyst Target Price": i.get("targetMeanPrice"), "Forward EPS": i.get("forwardEps"),
         "Trailing P/E": i.get("trailingPE"), "P/B": i.get("priceToBook"),
         "Name": i.get("shortName"), "Trailing EPS": i.get("trailingEps"),
+        "Sector": i.get("sector") or ("ETF/Fund" if i.get("quoteType") in ("ETF", "MUTUALFUND") else None),
     }.items() if v is not None}
