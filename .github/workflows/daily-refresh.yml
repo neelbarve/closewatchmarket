@@ -4,8 +4,9 @@ concurrency: refresh  # never run two refreshes at once
 
 on:
   schedule:
-    - cron: "0 14 * * 1-5"    # 10:00 ET weekdays: picks up before-open reports
-    - cron: "30 22 * * 1-5"   # 18:30 ET weekdays: picks up after-close reports
+    # Off-the-hour minutes: GitHub delays or drops scheduled runs most at :00 and :30
+    - cron: "7 14 * * 1-5"    # ~10:07 ET weekdays: picks up before-open reports
+    - cron: "43 22 * * 1-5"   # ~18:43 ET weekdays: picks up after-close reports
   workflow_dispatch:          # "Run workflow" button for manual refreshes
 
 permissions:

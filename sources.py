@@ -103,6 +103,15 @@ def price_target(symbol):
 
 
 # ------------------------------------------------------------------ Yahoo (backup)
+def yahoo_target(symbol):
+    """Latest analyst mean target from Yahoo (no pacing; callers limit concurrency) - or None."""
+    try:
+        import yfinance as yf
+        return (yf.Ticker(symbol).info or {}).get("targetMeanPrice")
+    except Exception:
+        return None
+
+
 def yahoo(symbol):
     """Analyst target, forward EPS and fallbacks for other fields - or {} on any failure."""
     try:

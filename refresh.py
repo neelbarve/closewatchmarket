@@ -23,6 +23,7 @@ UNIVERSE_CSV = ROOT / "data/universe.csv"  # Symbol -> Name, Market Cap ($B) cac
 ALL_CSV = ROOT / "output/earnings_oct_nov_2026.csv"
 HOLD_CSV = ROOT / "output/earnings_oct_nov_2026_holdings.csv"
 PORT_DIR = ROOT / "output/portfolios"
+STAMP = ROOT / "data/last_refresh.txt"  # UTC time of the last completed refresh, shown in the app
 WINDOW = (date(2026, 10, 1), date(2026, 11, 30))
 MIN_CAP_B = 2.0
 MAX_NEW_PROFILES = 300  # Finnhub lookups for never-seen symbols per run
@@ -202,6 +203,7 @@ def main(metric_limit):
     save(portfolio_table(HOLDINGS, cal, data, read(HOLD_CSV)), HOLD_CSV)
     for path, tickers in portfolios.items():
         save(portfolio_table(tickers, cal, data, read(path)), path)
+    STAMP.write_text(pd.Timestamp.now(tz="UTC").isoformat(timespec="seconds"))
     print(f"wrote {len(big)} events, {len(HOLDINGS)} holdings, {len(portfolios)} portfolios")
 
 

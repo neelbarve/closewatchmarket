@@ -6,6 +6,7 @@ portfolio, and a form to create a new portfolio from a list of tickers.
 Run:  streamlit run app.py
 """
 import re
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import pandas as pd
@@ -41,9 +42,31 @@ def live_prices():
     return sources.prices(), pd.Timestamp.now(tz="America/New_York")
 
 
+def last_refresh():
+    """When targets/valuations were last refreshed (ET), from the stamp the refresh job writes."""
+    try:
+        return pd.Timestamp(refresh.STAMP.read_text().strip()).tz_convert("America/New_York")
+    except Exception:
+        return pd.Timestamp(ALL_CSV.stat().st_mtime, unit="s", tz="UTC").tz_convert("America/New_York")
+
+
+MAX_LIVE_TARGETS = 150  # on-demand target refresh is limited to what's shown, to stay fast and polite to Yahoo
+
+
+def refresh_targets(symbols):
+    """Fetch the latest analyst targets now and keep them for this browser session."""
+    with ThreadPoolExecutor(4) as ex:
+        got = dict(zip(symbols, ex.map(sources.yahoo_target, symbols)))
+    got = {s: t for s, t in got.items() if t}
+    st.session_state.setdefault("live_targets", {}).update(got)
+    return len(got)
+
+
 def with_live_prices(df):
     px, _ = live_prices()
     df = df.copy()
+    df["Analyst Target Price"] = df["Symbol"].map(st.session_state.get("live_targets", {})).fillna(
+        df["Analyst Target Price"]).round(2)
     df["Current Price"] = df["Symbol"].map(px).fillna(df["Current Price"]).round(2)
     df["Upside to Target (%)"] = ((df["Analyst Target Price"] / df["Current Price"] - 1) * 100).round(1)
     df["Forward P/E"] = (df["Current Price"] / df["Forward EPS"]).where(df["Forward EPS"] > 0).round(2)
@@ -90,6 +113,24 @@ def show(df, key):
     if upcoming:
         view = view[view["Earnings Date"].isna() | (view["Earnings Date"] >= today)]
 
+    syms = [s for s in view.loc[view["Event"] != "ETF/fund - no earnings", "Symbol"].dropna().unique()]
+    b1, b2 = st.columns([1, 3])
+    too_many = len(syms) > MAX_LIVE_TARGETS
+    if b1.button("Refresh analyst targets", key=f"{key}_tgt", disabled=not syms or too_many,
+                 help=f"Filter to {MAX_LIVE_TARGETS} or fewer tickers first" if too_many else
+                 "Fetch the latest analyst targets for the tickers shown"):
+        with st.spinner(f"Fetching latest targets for {len(syms)} tickers..."):
+            n = refresh_targets(syms)
+        st.session_state[f"{key}_tgt_msg"] = (n, len(syms), pd.Timestamp.now(tz="America/New_York"))
+        st.rerun()
+    if f"{key}_tgt_msg" in st.session_state:
+        n, total, when = st.session_state[f"{key}_tgt_msg"]
+        (b2.success if n else b2.warning)(
+            f"Targets updated for {n} of {total} tickers at {when:%H:%M} ET." if n else
+            "Couldn't reach the target source just now - showing targets from the last scheduled refresh.")
+    elif too_many:
+        b2.caption(f"Showing {len(syms)} tickers - filter to {MAX_LIVE_TARGETS} or fewer to refresh targets live.")
+
     st.dataframe(view, hide_index=True, use_container_width=True, height=560,
                  column_config={"Earnings Date": st.column_config.DateColumn(format="YYYY-MM-DD")})
     st.download_button("Download CSV", view.to_csv(index=False, date_format="%Y-%m-%d"),
@@ -115,9 +156,11 @@ def slug(name):
 # ---------------------------------------------------------------- layout
 st.title("Earnings Monitor - Oct/Nov 2026")
 _px, _px_time = live_prices()
-st.caption(f"Prices live from Tiingo as of {_px_time:%Y-%m-%d %H:%M} ET (updates every minute on reload). "
-           "Earnings and valuations: Finnhub, FMP and Yahoo, refreshed 10:00 and 18:30 ET on weekdays. "
-           "Blank cells = value not available.")
+_ref = last_refresh()
+_age_h = (pd.Timestamp.now(tz="America/New_York") - _ref).total_seconds() / 3600
+st.caption(f"Prices: live from Tiingo as of {_px_time:%Y-%m-%d %H:%M} ET (reload to update; upside % uses the live price). "
+           f"Analyst targets, earnings and valuations: last refreshed {_ref:%Y-%m-%d %H:%M} ET ({_age_h:.0f}h ago) "
+           "from Finnhub, FMP and Yahoo - use 'Refresh analyst targets' for the latest. Blank cells = not available.")
 
 PORT_DIR.mkdir(parents=True, exist_ok=True)
 portfolios = sorted(PORT_DIR.glob("*.csv"))
