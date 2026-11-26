@@ -211,6 +211,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-10-28,BRSP,AMC,Q3 2026 Earnings Announcement,0.139,0.14
 2026-10-28,BSX,BMO,Q3 2026 Earnings Announcement,0.7233,0.73
 2026-10-28,BVN,TAS,Q3 2026 Earnings Announcement,0.9999,
+2026-10-28,CASK,BMO,Q3 2026 Earnings Announcement,0.3605,0.39
 2026-10-28,CBAN,AMC,Q3 2026 Earnings Announcement,0.5406,0.54
 2026-10-28,CBNA,AMC,Q3 2026 Earnings Announcement,1.5198,1.66
 2026-10-28,CCS,AMC,Q3 2026 Earnings Announcement,1.207,1.01
@@ -329,7 +330,6 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-10-28,MCHB,BMO,Q3 2026 Earnings Announcement,0.2853,0.29
 2026-10-28,MDXG,AMC,Q3 2026 Earnings Announcement,-0.0136,-0.01
 2026-10-28,MGM,AMC,Q3 2026 Earnings Announcement,0.0922,-0.11
-2026-10-28,MGPI,BMO,Q3 2026 Earnings Announcement,0.3605,0.39
 2026-10-28,MGRC,AMC,Q3 2026 Earnings Announcement,1.9302,2.0
 2026-10-28,MKL,AMC,Q3 2026 Earnings Announcement,27.6816,43.4
 2026-10-28,MORN,AMC,Q3 2026 Earnings Announcement,3.1008,3.48
@@ -534,7 +534,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-10-29,EXSR,TAS,Q3 2026 Earnings Announcement,,
 2026-10-29,FBIZ,AMC,Q3 2026 Earnings Announcement,1.7054,1.95
 2026-10-29,FCN,BMO,Q3 2026 Earnings Announcement,2.7708,3.84
-2026-10-29,FDXF,AMC,Q4 2026 Earnings Announcement,0.7183,
+2026-10-29,FDXF,AMC,Q3 2026 Earnings Announcement,1.3833,1.49
 2026-10-29,FET,AMC,Q3 2026 Earnings Announcement,1.2272,1.51
 2026-10-29,FGBI,TAS,Q3 2026 Earnings Announcement,0.1224,
 2026-10-29,FHI,AMC,Q3 2026 Earnings Announcement,1.436,1.5
@@ -580,7 +580,6 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-10-29,IMRX,AMC,Q3 2026 Earnings Announcement,-0.3121,-0.37
 2026-10-29,INBK,AMC,Q3 2026 Earnings Announcement,0.7931,0.54
 2026-10-29,INCY,BMO,Q3 2026 Earnings Announcement,-3.927,-3.6
-2026-10-29,INDV,BMO,Q3 2026 Earnings Announcement,1.1414,1.32
 2026-10-29,INGM,AMC,Q3 2026 Earnings Announcement,0.7932,0.91
 2026-10-29,INSM,BMO,Q3 2026 Earnings Announcement,-0.3863,-0.46
 2026-10-29,INTC,AMC,Q3 2026 Earnings Announcement,0.4043,0.52
@@ -777,6 +776,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-10-30,EXC,BMO,Q3 2026 Earnings Announcement,0.7957,0.87
 2026-10-30,FABP,TAS,Q3 2026 Earnings Announcement,,
 2026-10-30,FBTT,TAS,Q3 2026 Earnings Announcement,,
+2026-10-30,FCDH,TAS,Q2 2026 Earnings Announcement,,
 2026-10-30,FKYS,TAS,Q3 2026 Earnings Announcement,,
 2026-10-30,FRT,BMO,Q3 2026 Earnings Announcement,0.7315,0.74
 2026-10-30,FT,TAS,Q4 2026 Earnings Announcement,,
@@ -827,7 +827,6 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-10-30,USLM,AMC,Q3 2026 Earnings Announcement,1.5096,1.32
 2026-10-30,VOR,BMO,Q3 2026 Earnings Announcement,-0.833,-1.45
 2026-10-30,VRRM,BMO,Q3 2026 Earnings Announcement,0.2678,0.36
-2026-10-30,VSME,TAS,Q2 2026 Earnings Announcement,,
 2026-10-30,WSR,TAS,Q3 2026 Earnings Announcement,0.2172,
 2026-10-30,WT,BMO,Q3 2026 Earnings Announcement,0.3119,0.32
 2026-10-30,XOM,BMO,Q3 2026 Earnings Announcement,4.1191,4.23
@@ -1283,7 +1282,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-04,ALNT,AMC,Q3 2026 Earnings Announcement,0.7528,1.07
 2026-11-04,ALTO,AMC,Q3 2026 Earnings Announcement,0.0952,0.16
 2026-11-04,AMC,AMC,Q3 2026 Earnings Announcement,0.0375,0.12
-2026-11-04,AMCR,AMC,Q1 2027 Earnings Announcement,0.9852,
+2026-11-04,AMCR,AMC,Q3 2026 Earnings Announcement,0.986,0.95
 2026-11-04,AMH,AMC,Q3 2026 Earnings Announcement,0.1827,0.23
 2026-11-04,AMPL,AMC,Q3 2026 Earnings Announcement,0.0304,0.04
 2026-11-04,AMSC,AMC,Q2 2027 Earnings Announcement,0.2066,0.19
@@ -1317,7 +1316,6 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-04,BGSF,AMC,Q3 2026 Earnings Announcement,0.0,0.01
 2026-11-04,BHR,AMC,Q3 2026 Earnings Announcement,-0.7171,-0.25
 2026-11-04,BIO,AMC,Q3 2026 Earnings Announcement,2.2473,2.65
-2026-11-04,BKH,AMC,Q3 2026 Earnings Announcement,0.4722,0.57
 2026-11-04,BLFS,TAS,Q3 2026 Earnings Announcement,0.0578,
 2026-11-04,BLLN,AMC,Q3 2026 Earnings Announcement,0.1486,0.32
 2026-11-04,BMBL,AMC,Q3 2026 Earnings Announcement,0.2257,0.2
@@ -1433,9 +1431,9 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-04,HST,AMC,Q3 2026 Earnings Announcement,0.101,0.1
 2026-11-04,HUBS,AMC,Q3 2026 Earnings Announcement,3.3351,3.81
 2026-11-04,HVT,BMO,Q3 2026 Earnings Announcement,0.4242,0.39
+2026-11-04,HZN,AMC,Q3 2026 Earnings Announcement,0.4722,0.57
 2026-11-04,HZO,BMO,Q4 2026 Earnings Announcement,0.0388,-0.08
 2026-11-04,ICR PR A,TAS,Q3 2026 Earnings Announcement,,
-2026-11-04,INM,TAS,Q1 2027 Earnings Announcement,-0.3156,
 2026-11-04,INSG,AMC,Q3 2026 Earnings Announcement,-0.34,-0.27
 2026-11-04,INVA,AMC,Q3 2026 Earnings Announcement,0.5253,-1.03
 2026-11-04,IOR,TAS,Q3 2026 Earnings Announcement,,
@@ -1495,6 +1493,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-04,MSGE,BMO,Q1 2027 Earnings Announcement,-0.0523,0.19
 2026-11-04,MSI,AMC,Q3 2026 Earnings Announcement,4.4611,4.69
 2026-11-04,MTG,AMC,Q3 2026 Earnings Announcement,0.821,0.85
+2026-11-04,MTRI,TAS,Q1 2027 Earnings Announcement,-0.3188,
 2026-11-04,MTRN,BMO,Q3 2026 Earnings Announcement,1.9295,1.93
 2026-11-04,MTRX,AMC,Q1 2027 Earnings Announcement,0.1836,0.23
 2026-11-04,MUR,AMC,Q3 2026 Earnings Announcement,0.7703,1.08
@@ -2352,7 +2351,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-06,MDCX,AMC,Q3 2026 Earnings Announcement,-6.7575,-11.64
 2026-11-06,MMI,BMO,Q3 2026 Earnings Announcement,0.0651,0.03
 2026-11-06,MRNA,BMO,Q3 2026 Earnings Announcement,-1.2755,0.38
-2026-11-06,MSGS,BMO,Q1 2027 Earnings Announcement,-1.0241,-1.26
+2026-11-06,MSGK,BMO,Q1 2027 Earnings Announcement,-1.0241,-1.26
 2026-11-06,NERV,BMO,Q3 2026 Earnings Announcement,-0.1268,1.94
 2026-11-06,NIKA,TAS,Q3 2026 Earnings Announcement,,
 2026-11-06,NKX,TAS,Q4 2026 Earnings Announcement,,
@@ -2668,7 +2667,6 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-10,AAUAF,TAS,Q3 2026 Earnings Announcement,,
 2026-11-10,ABUS,BMO,Q3 2026 Earnings Announcement,-0.0204,-0.04
 2026-11-10,ACCS,BMO,Q3 2026 Earnings Announcement,0.1122,0.136
-2026-11-10,ACHV,BMO,Q3 2026 Earnings Announcement,-0.2042,-0.11
 2026-11-10,ADVM,TAS,Q3 2026 Earnings Announcement,-1.2852,
 2026-11-10,AII,AMC,Q3 2026 Earnings Announcement,0.7143,1.44
 2026-11-10,AIRG,AMC,Q3 2026 Earnings Announcement,0.0434,0.04
@@ -2857,6 +2855,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-10,QMLS,AMC,Q3 2026 Earnings Announcement,-0.3468,-0.43
 2026-11-10,QTI,AMC,Q3 2026 Earnings Announcement,-0.1148,-0.02
 2026-11-10,QUIK,AMC,Q3 2026 Earnings Announcement,-0.051,-0.07
+2026-11-10,QUIT,BMO,Q3 2026 Earnings Announcement,-0.2042,-0.11
 2026-11-10,RDGL,TAS,Q3 2026 Earnings Announcement,,
 2026-11-10,RDNW,AMC,Q3 2026 Earnings Announcement,-0.0068,-0.36
 2026-11-10,REA,AMC,Q3 2026 Earnings Announcement,-0.3545,-0.52
@@ -3016,7 +3015,6 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-12,ACCR,TAS,Q3 2026 Earnings Announcement,,
 2026-11-12,ACXP,BMO,Q3 2026 Earnings Announcement,-0.3842,-0.49
 2026-11-12,ADIG,BMO,Q3 2026 Earnings Announcement,0.442,-8.47
-2026-11-12,ADIL,AMC,Q3 2026 Earnings Announcement,-0.6783,-4.52
 2026-11-12,ADMT,TAS,Q2 2027 Earnings Announcement,,
 2026-11-12,ADRX,AMC,Q3 2026 Earnings Announcement,-0.839,-1.74
 2026-11-12,AEAQ,TAS,Q3 2026 Earnings Announcement,,
@@ -3057,6 +3055,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-12,AVX,AMC,Q3 2026 Earnings Announcement,,6.11
 2026-11-12,AWH,TAS,Q3 2026 Earnings Announcement,,
 2026-11-12,AXIM,TAS,Q3 2026 Earnings Announcement,,
+2026-11-12,AZR,AMC,Q3 2026 Earnings Announcement,-0.6717,-4.52
 2026-11-12,AZTR,AMC,Q3 2026 Earnings Announcement,-0.2295,-0.29
 2026-11-12,BACC,TAS,Q3 2026 Earnings Announcement,,
 2026-11-12,BAYA,TAS,Q3 2026 Earnings Announcement,,
@@ -3728,7 +3727,6 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-16,ESLA,BMO,Q3 2026 Earnings Announcement,-0.0816,-0.17
 2026-11-16,EUBG,TAS,Q3 2026 Earnings Announcement,,
 2026-11-16,EVTL,TAS,Q3 2026 Earnings Announcement,-0.2366,
-2026-11-16,EZRA,TAS,Q3 2026 Earnings Announcement,,
 2026-11-16,FBLG,AMC,Q3 2026 Earnings Announcement,-0.6426,-0.38
 2026-11-16,FCRS,TAS,Q3 2026 Earnings Announcement,,
 2026-11-16,FEAM,AMC,Q1 2027 Earnings Announcement,-0.2142,-0.32
@@ -3948,6 +3946,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-16,XBP,AMC,Q3 2026 Earnings Announcement,-0.7676,-7.3
 2026-11-16,XELB,AMC,Q3 2026 Earnings Announcement,-0.4488,-0.35
 2026-11-16,XERI,TAS,Q1 2027 Earnings Announcement,,
+2026-11-16,XGPU,TAS,Q3 2026 Earnings Announcement,,
 2026-11-16,XP,AMC,Q3 2026 Earnings Announcement,2.8646,2.69
 2026-11-16,XPEV,BMO,Q3 2026 Earnings Announcement,-0.9066,-0.91
 2026-11-16,XPON,TAS,Q3 2026 Earnings Announcement,,
@@ -3979,6 +3978,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-17,CHUC,TAS,Q3 2026 Earnings Announcement,,
 2026-11-17,CNFN,TAS,Q3 2026 Earnings Announcement,,
 2026-11-17,COOT,TAS,Q4 2026 Earnings Announcement,,
+2026-11-17,DCM,TAS,Q2 2027 Earnings Announcement,,
 2026-11-17,DIS,BMO,Q4 2026 Earnings Announcement,1.6909,1.77
 2026-11-17,DLB,AMC,Q4 2026 Earnings Announcement,1.207,1.25
 2026-11-17,EARN,AMC,Q2 2026 Earnings Announcement,0.1904,
@@ -4030,7 +4030,6 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-17,TME,BMO,Q3 2026 Earnings Announcement,1.5022,1.55
 2026-11-17,TOPS,TAS,Q3 2026 Earnings Announcement,,
 2026-11-17,UEEC,TAS,Q3 2026 Earnings Announcement,,
-2026-11-17,UUU,TAS,Q2 2027 Earnings Announcement,,
 2026-11-17,VIK,BMO,Q3 2026 Earnings Announcement,1.2819,1.11
 2026-11-17,VRDR,TAS,Q1 2027 Earnings Announcement,,
 2026-11-17,VSEE,TAS,Q3 2026 Earnings Announcement,,
@@ -4204,7 +4203,6 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-23,AMTM,AMC,Q4 2026 Earnings Announcement,0.6732,0.71
 2026-11-23,ANEB,TAS,Q1 2027 Earnings Announcement,-0.1122,
 2026-11-23,ANF,TAS,Q3 2027 Earnings Announcement,3.1326,
-2026-11-23,ANTA,TAS,Q3 2026 Earnings Announcement,0.1224,
 2026-11-23,AURI,TAS,Q3 2026 Earnings Announcement,,
 2026-11-23,AVXL,AMC,Q4 2026 Earnings Announcement,-0.1122,
 2026-11-23,BBLR,TAS,Q3 2026 Earnings Announcement,,
@@ -4236,7 +4234,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-23,CURR,TAS,Q3 2026 Earnings Announcement,,
 2026-11-23,CYAN,TAS,Q2 2027 Earnings Announcement,,
 2026-11-23,DAC,AMC,Q3 2026 Earnings Announcement,7.4185,8.32
-2026-11-23,DAVA,TAS,Q1 2027 Earnings Announcement,0.1302,
+2026-11-23,DAVA,BMO,Q4 2026 Earnings Announcement,0.1062,
 2026-11-23,DKS,TAS,Q3 2027 Earnings Announcement,1.4181,
 2026-11-23,DMNIF,TAS,Q1 2027 Earnings Announcement,,
 2026-11-23,DREM,TAS,Q3 2026 Earnings Announcement,,
@@ -4339,7 +4337,6 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-24,BZUN,BMO,Q3 2026 Earnings Announcement,-1.6116,-0.799476
 2026-11-24,BZYR,TAS,Q2 2027 Earnings Announcement,,
 2026-11-24,CIRC,TAS,Q3 2026 Earnings Announcement,-0.1632,
-2026-11-24,CLGN,TAS,Q3 2026 Earnings Announcement,-0.1275,
 2026-11-24,CLSK,AMC,Q4 2026 Earnings Announcement,-0.2326,0.04
 2026-11-24,CMCM,TAS,Q3 2026 Earnings Announcement,,
 2026-11-24,COSM,TAS,Q3 2026 Earnings Announcement,-0.816,
@@ -4367,6 +4364,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-24,NTNX,AMC,Q1 2027 Earnings Announcement,0.6175,0.73
 2026-11-24,OLB,TAS,Q3 2026 Earnings Announcement,-0.101,
 2026-11-24,OMQS,TAS,Q3 2026 Earnings Announcement,,-0.14
+2026-11-24,OPHI,TAS,Q3 2026 Earnings Announcement,-0.1275,
 2026-11-24,ORIB,TAS,Q2 2027 Earnings Announcement,,
 2026-11-24,QFIN,AMC,Q3 2026 Earnings Announcement,3.1926,3.065624
 2026-11-24,SHOE,BMO,Q3 2027 Earnings Announcement,0.3638,0.05
@@ -4415,6 +4413,7 @@ Earnings Date,Symbol,Timing,Event,EPS Estimate,Reported EPS
 2026-11-27,SSKN,TAS,Q3 2026 Earnings Announcement,-0.3692,
 2026-11-27,XYF,BMO,Q3 2026 Earnings Announcement,,
 2026-11-30,BOSC,BMO,Q3 2026 Earnings Announcement,0.0643,
+2026-11-30,CANG,AMC,Q3 2026 Earnings Announcement,-0.1122,
 2026-11-30,CNBX,TAS,Q4 2026 Earnings Announcement,,
 2026-11-30,CTRN,TAS,Q3 2027 Earnings Announcement,-0.3417,
 2026-11-30,ELLO,TAS,Q3 2026 Earnings Announcement,,
